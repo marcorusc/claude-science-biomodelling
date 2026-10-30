@@ -28,6 +28,21 @@ Each profile is **curated**: one connector only, with `delete_session` and
 `clean_generated_files` (and `close_session` on BioMASS) excluded at tool level,
 so a specialist cannot destroy sessions or generated artifacts.
 
+## Layout
+
+```
+agents/<PROFILE>.md     one per specialist: frontmatter (display name,
+                        description, connector, excluded tools, skills) plus
+                        the full system prompt as the body
+skills/<skill>/         SKILL.md and any reference files
+install.py              reads the two directories above and provisions them
+```
+
+The markdown files **are** the definitions — there is no generated manifest, so
+editing a prompt or a skill list and re-running `install()` is the whole update
+loop. This mirrors `.claude/agents/` and `.claude/skills/` in the Claude Code
+repo, with the frontmatter keys this platform needs instead.
+
 ## Install
 
 You need the four MCP connectors attached to your account first (`neko`, `maboss`,
@@ -101,7 +116,7 @@ reaches a specialist's task when `SPEC["approvals"]` supplies one.
   placeholder figure bytes, overwrite refusals). Some will disappear with later
   releases — that file is the one to revise.
 - The profiles assume connectors named exactly `neko`, `maboss`, `biomass`,
-  `physicell`. Edit `bundle.json` if yours differ.
+  `physicell`. Edit the `connector:` line in `agents/*.md` if yours differ.
 
 ## Relationship to the Claude Code version
 
