@@ -2,7 +2,7 @@
 
 Biomodelling specialists for Claude Science
 
-Four agent profiles and six skills for driving the `mcp-biomodelling-servers`
+Four agent profiles and six skills for driving the [`mcp-biomodelling-servers`](https://github.com/marcorusc/mcp-biomodelling-servers)
 stack (NeKo -> MaBoSS -> PhysiCell, plus BioMASS) from Claude Science.
 
 Ported from the Claude Code specialists in
@@ -47,7 +47,14 @@ repo, with the frontmatter keys this platform needs instead.
 
 You need the four MCP connectors attached to your account first (`neko`, `maboss`,
 `biomass`, `physicell`) — the installer skips any profile whose connector is
-missing. Your organisation also needs custom skills and custom agents enabled;
+missing. The servers behind them are
+[`marcorusc/mcp-biomodelling-servers`](https://github.com/marcorusc/mcp-biomodelling-servers).
+
+The profiles also list skills this repo does not ship: `figure-style`, which is
+built into Claude Science, and the `mcp-*` per-tool reference skills
+(`mcp-neko*`, `mcp-maboss`, `mcp-biomass`, `mcp-physicell*`). `install.py` only
+provisions what is under `skills/`, so these must already exist in your
+workspace. Your organisation also needs custom skills and custom agents enabled;
 if they are off, `install()` returns errors saying so and there is no workaround
 from inside the session.
 
@@ -60,7 +67,7 @@ enough. Pick whichever route matches how you received it.
 In the **`bash`** tool:
 
 ```bash
-git clone https://github.com/<owner>/claude-science-biomodelling.git
+git clone https://github.com/marcorusc/claude-science-biomodelling.git
 ```
 
 ### Route B — from a file attached in chat
