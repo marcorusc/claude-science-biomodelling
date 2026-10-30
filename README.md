@@ -50,11 +50,8 @@ You need the four MCP connectors attached to your account first (`neko`, `maboss
 missing. The servers behind them are
 [`marcorusc/mcp-biomodelling-servers`](https://github.com/marcorusc/mcp-biomodelling-servers).
 
-The profiles also list skills this repo does not ship: `figure-style`, which is
-built into Claude Science, and the `mcp-*` per-tool reference skills
-(`mcp-neko*`, `mcp-maboss`, `mcp-biomass`, `mcp-physicell*`). `install.py` only
-provisions what is under `skills/`, so these must already exist in your
-workspace. Your organisation also needs custom skills and custom agents enabled;
+Every profile also lists `figure-style`, which is built into Claude Science and
+is not shipped here. Your organisation also needs custom skills and custom agents enabled;
 if they are off, `install()` returns errors saying so and there is no workaround
 from inside the session.
 
